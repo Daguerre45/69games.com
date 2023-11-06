@@ -1,79 +1,89 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
+
 <head>
     <meta charset="UTF-8">
-    <title>Clasificación</title>
-    <link rel="stylesheet" href="../css/clasificacion.css">
-    <!-- Agregar la CDN de FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Clasificacion</title>
+    <link rel="stylesheet" type="text/css" href="../css/clasificacion.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div class="clasificacion">
-        <h1>Clasificación</h1>
-        
-        <!-- Botón para cambiar el tema -->
-        <button id="theme-toggle" class="theme-toggle">
-            <i id="theme-icon" class="fas fa-sun"></i>
-        </button>
-        
-        <table>
-            <thead>
-                <tr>
-                    <th>Posición</th>
-                    <th>Jugador</th>
-                    <th>Puntos</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>ALBERTO</td>
-                    <td>1000</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>EL GITANO DE ALBERTO</td>
-                    <td>900</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>EL JUDIO DE ALBERTO</td>
-                    <td>880</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
 
-    <script>
-        const themeToggle = document.getElementById("theme-toggle");
-        const themeIcon = document.getElementById("theme-icon");
-        
-        // Determinar el tema actual o utilizar el tema por defecto ("light" en este caso)
-        let currentTheme = localStorage.getItem("theme") || "light";
-    
-        // Función para cambiar el tema
-        function toggleTheme() {
-            if (currentTheme === "light") {
-                document.documentElement.setAttribute("data-theme", "dark");
-                themeIcon.classList.remove("fa-sun");
-                themeIcon.classList.add("fa-moon");
-                currentTheme = "dark";
-            } else {
-                document.documentElement.setAttribute("data-theme", "light");
-                themeIcon.classList.remove("fa-moon");
-                themeIcon.classList.add("fa-sun");
-                currentTheme = "light";
-            }
-    
-            // Guardar el tema actual en el almacenamiento local
-            localStorage.setItem("theme", currentTheme);
-        }
-    
-        // Asignar el tema actual al atributo data-theme del documento
-        document.documentElement.setAttribute("data-theme", currentTheme);
-    
-        // Asignar el evento click al botón para cambiar el tema
-        themeToggle.addEventListener("click", toggleTheme);
-    </script>
-</body>
+<body>
+    <div class="clasificacion-container">
+        <img id="lupa" src="../../images/search.webp" alt="lupa">
+        <input type="text" id="search-input" placeholder="BUSCAR">
+        <ol class="clasificacion-list">
+            <li class="clasificacion-item">
+                <div class="perfil"><img src="../../images/profile_default.jpg" alt="Foto de perfil"></div>
+                <div class="ranking">1</div>
+                <div class="nombre">NICK</div>
+                <div class="puntos">999</div>
+            </li>
+            <li class="clasificacion-item">
+                <div class="perfil"><img src="../../images/profile_default.jpg" alt="Foto de perfil"></div>
+                <div class="ranking">2</div>
+                <div class="nombre">NICK</div>
+                <div class="puntos">978</div>
+            </li>
+            <li class="clasificacion-item">
+                <div class="perfil"><img src="../../images/profile_default.jpg" alt="Foto de perfil"></div>
+                <div class="ranking">3</div>
+                <div class="nombre">NICK</div>
+                <div class="puntos">950</div>
+            </li>
+            <li class="clasificacion-item">
+                <div class="perfil"><img src="../../images/profile_default.jpg" alt="Foto de perfil"></div>
+                <div class="ranking">4</div>
+                <div class="nombre">NICK</div>
+                <div class="puntos">938</div>
+            </li>
+            <li class="clasificacion-item">
+                <div class="perfil"><img src="../../images/profile_default.jpg" alt="Foto de perfil"></div>
+                <div class="ranking">5</div>
+                <div class="nombre">NICK</div>
+                <div class="puntos">930</div>
+            </li>
+            <li class="clasificacion-item">
+                <div class="perfil"><img src="../../images/profile_default.jpg" alt="Foto de perfil"></div>
+                <div class="ranking">6</div>
+                <div class="nombre">NICK</div>
+                <div class="puntos">929</div>
+            </li>
+            <li class="clasificacion-item">
+                <div class="perfil"><img src="../../images/profile_default.jpg" alt="Foto de perfil"></div>
+                <div class="ranking">7</div>
+                <div class="nombre">NICK</div>
+                <div class="puntos">899</div>
+            </li>
+            <li class="clasificacion-item">
+                <div class="perfil"><img src="../../images/profile_default.jpg" alt="Foto de perfil"></div>
+                <div class="ranking">8</div>
+                <div class="nombre">NICK</div>
+                <div class="puntos">878</div>
+            </li>
+            <li class="clasificacion-item">
+                <div class="perfil"><img src="../../images/profile_default.jpg" alt="Foto de perfil"></div>
+                <div class="ranking">9</div>
+                <div class="nombre">NICK</div>
+                <div class="puntos">850</div>
+            </li>
+            <li class="clasificacion-item">
+                <div class="perfil"><img src="../../images/profile_default.jpg" alt="Foto de perfil"></div>
+                <div class="ranking">10</div>
+                <div class="nombre">NICK</div>
+                <div class="puntos">838</div>
+            </li>
+            <li class="clasificacion-item">
+                <div class="perfil"><img src="../../images/profile_default.jpg" alt="Foto de perfil"></div>
+                <div class="ranking">11</div>
+                <div class="nombre">NICK</div>
+                <div class="puntos">830</div>
+            </li>
+            <li class="clasificacion-item">
+                <div class="perfil"><img src="../../images/profile_default.jpg" alt="Foto de perfil"></div>
+                <div class="ranking">12</div>
+                <div class="nombre">NICK</div>
+                <div class="puntos">829</div>
+            </li>
+
 </html>

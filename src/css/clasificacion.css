@@ -1,90 +1,91 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    transition: background-color 0.5s, color 0.5s;
-  }
-  
-  [data-theme="light"] {
-    --text: #06021d;
-    --background: #f0ecfe;
-    --primary: #e0f57f;
-    --secondary: #c8bdfa;
-    --accent: #b5da10;
-  }
-  
-  [data-theme="dark"] {
-    --text: #e7e3fd;
-    --background: #050113;
-    --primary: #6a800a;
-    --secondary: #100542;
-    --accent: #caef25;
-  }
-  
-  body {
-    color: var(--text);
-    background-color: var(--background);
-  }
-  
-  .header {
-    background-color: var(--primary);
-    color: var(--text);
-    padding: 10px;
-  }
-  
-  .sidebar {
-    background-color: var(--secondary);
-    color: var(--text);
-    width: 250px;
-    padding: 10px;
-  }
-  
-  .main-content {
-    background-color: var(--background);
-    color: var(--text);
-    padding: 20px;
-  }
-  
-  .button {
-    background-color: var(--accent);
-    color: var(--text);
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  /* Agregar estilos responsive */
-  @media screen and (max-width: 768px) {
-    .sidebar {
-      display: none;
-    }
-  
-    .main-content {
-      width: 100%;
-    }
-  }
-  .theme-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    cursor: pointer;
-    z-index: 999;
-    background-color: var(--primary);
-    color: var(--text);
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .theme-toggle:hover {
-    background-color: var(--accent);
-  }
-  
-  .fas.fa-moon {
-    display: none; /* Oculta el icono de la luna por defecto */
-  }
+  font-family: 'Roboto';
+  background: #49454567;
+  background: linear-gradient(to right, #0fb9fc, #ba30f1);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clasificacion-container {
+  height: 90%;
+  width: 95%;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+  border: black;
+}
+
+#lupa {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--colorTextos);
+  background: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.search-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+#search-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid var(--colorTextos);
+  border-radius: 5px;
+}
+
+.clasificacion-list {
+  list-style: none;
+  padding: 0;
+}
+
+.clasificacion-item {
+  text-align: left;
+  background: white;
+  background: linear-gradient(to right, #0fb9fc, #ba30f1);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--colorTextos);
+  margin-bottom: 5px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.perfil {
+  flex: 0 0 50px; /* Ancho fijo para la foto de perfil */
+  margin-right: 10px; /* Espacio entre la foto de perfil y el ranking */
+}
+.perfil img {
+  width: 100%;
+  height: 100%;
+}
+.ranking {
+  flex: 1; /* Toma el espacio restante */
+  text-align: left;
+  margin-right: 10px; /* Espacio entre el ranking y el nombre */
+}
+.nombre {
+  flex: 2; /* Toma el doble de espacio que el ranking */
+  text-align: left;
+  margin-right: 10px; /* Espacio entre el nombre y los puntos */
+}
+.puntos {
+  flex: 1; /* Toma el espacio restante */
+  text-align: right;
+}
