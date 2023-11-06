@@ -3,11 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Clasificación</title>
-    <link rel="stylesheet" href="css/clasificacion.css">
+    <link rel="stylesheet" href="../css/clasificacion.css">
+    <!-- Agregar la CDN de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <div class="clasificacion">
         <h1>Clasificación</h1>
+        
+        <!-- Botón para cambiar el tema -->
+        <button id="theme-toggle" class="theme-toggle">
+            <i id="theme-icon" class="fas fa-sun"></i>
+        </button>
+        
         <table>
             <thead>
                 <tr>
@@ -19,21 +27,53 @@
             <tbody>
                 <tr>
                     <td>1</td>
-                    <td>Nick</td>
-                    <td>100</td>
+                    <td>ALBERTO</td>
+                    <td>1000</td>
                 </tr>
                 <tr>
                     <td>2</td>
-                    <td>Juan</td>
-                    <td>90</td>
+                    <td>EL GITANO DE ALBERTO</td>
+                    <td>900</td>
                 </tr>
                 <tr>
                     <td>3</td>
-                    <td>Pedro</td>
-                    <td>80</td>
+                    <td>EL JUDIO DE ALBERTO</td>
+                    <td>880</td>
                 </tr>
             </tbody>
         </table>
     </div>
+
+    <script>
+        const themeToggle = document.getElementById("theme-toggle");
+        const themeIcon = document.getElementById("theme-icon");
+        
+        // Determinar el tema actual o utilizar el tema por defecto ("light" en este caso)
+        let currentTheme = localStorage.getItem("theme") || "light";
+    
+        // Función para cambiar el tema
+        function toggleTheme() {
+            if (currentTheme === "light") {
+                document.documentElement.setAttribute("data-theme", "dark");
+                themeIcon.classList.remove("fa-sun");
+                themeIcon.classList.add("fa-moon");
+                currentTheme = "dark";
+            } else {
+                document.documentElement.setAttribute("data-theme", "light");
+                themeIcon.classList.remove("fa-moon");
+                themeIcon.classList.add("fa-sun");
+                currentTheme = "light";
+            }
+    
+            // Guardar el tema actual en el almacenamiento local
+            localStorage.setItem("theme", currentTheme);
+        }
+    
+        // Asignar el tema actual al atributo data-theme del documento
+        document.documentElement.setAttribute("data-theme", currentTheme);
+    
+        // Asignar el evento click al botón para cambiar el tema
+        themeToggle.addEventListener("click", toggleTheme);
+    </script>
 </body>
 </html>
