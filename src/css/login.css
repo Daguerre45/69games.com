@@ -12,7 +12,7 @@
 }
 
 body {
-    font-family: monospace;
+    font-family: 'Roboto';
     background: #49454567;
     background: linear-gradient(to right, #0fb9fc, #ba30f1);
     height: 750px;
@@ -100,7 +100,7 @@ input:focus~.barra::before{
 }
 
 button{
-    font-family: monospace;
+    font-family: 'roboto';
     border-radius: 10px;
     background: #49454567;
     background: linear-gradient(to right, #0fb9fc, #ba30f1);
@@ -112,6 +112,13 @@ button{
     height: 40px;
     font-size: 16px;
     cursor: pointer;
+}
+
+#enlace{
+    font-family: 'roboto';
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
 }
 
 #flecha {
