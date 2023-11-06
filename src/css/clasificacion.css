@@ -1,22 +1,90 @@
-.clasificacion {
-    width: 500px;
-    margin: 0 auto;
-}
-
-h1 {
-    text-align: center;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th, td {
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.5s, color 0.5s;
+  }
+  
+  [data-theme="light"] {
+    --text: #06021d;
+    --background: #f0ecfe;
+    --primary: #e0f57f;
+    --secondary: #c8bdfa;
+    --accent: #b5da10;
+  }
+  
+  [data-theme="dark"] {
+    --text: #e7e3fd;
+    --background: #050113;
+    --primary: #6a800a;
+    --secondary: #100542;
+    --accent: #caef25;
+  }
+  
+  body {
+    color: var(--text);
+    background-color: var(--background);
+  }
+  
+  .header {
+    background-color: var(--primary);
+    color: var(--text);
     padding: 10px;
-    border: 1px solid #ccc;
-}
-
-th {
-    text-align: center;
-}
+  }
+  
+  .sidebar {
+    background-color: var(--secondary);
+    color: var(--text);
+    width: 250px;
+    padding: 10px;
+  }
+  
+  .main-content {
+    background-color: var(--background);
+    color: var(--text);
+    padding: 20px;
+  }
+  
+  .button {
+    background-color: var(--accent);
+    color: var(--text);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Agregar estilos responsive */
+  @media screen and (max-width: 768px) {
+    .sidebar {
+      display: none;
+    }
+  
+    .main-content {
+      width: 100%;
+    }
+  }
+  .theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 999;
+    background-color: var(--primary);
+    color: var(--text);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .theme-toggle:hover {
+    background-color: var(--accent);
+  }
+  
+  .fas.fa-moon {
+    display: none; /* Oculta el icono de la luna por defecto */
+  }
