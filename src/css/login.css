@@ -12,7 +12,7 @@
 }
 
 body {
-    font-family: 'Roboto';
+    font-family: monospace;
     background: #49454567;
     background: linear-gradient(to right, #0fb9fc, #ba30f1);
     height: 750px;
@@ -100,7 +100,7 @@ input:focus~.barra::before{
 }
 
 button{
-    font-family: 'roboto';
+    font-family: monospace;
     border-radius: 10px;
     background: #49454567;
     background: linear-gradient(to right, #0fb9fc, #ba30f1);
