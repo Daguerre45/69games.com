@@ -1,0 +1,54 @@
+* {
+    font-family: 'roboto';
+}
+
+body {
+    background: linear-gradient(to right, #0fb9fc, #ba30f1);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.topnav {
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+    background-color: #333;
+    display: flex;
+    justify-content: space-between;
+}
+
+.topnav a {
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    flex: 1;
+}
+
+.topnav a:hover {
+    background: linear-gradient(#0fb9fc, #ba30f1);
+    color: #333;
+}
+
+#boton-jugar {
+    align-self: flex-end;
+    margin-right: 60px;
+    margin-top: auto; 
+    margin-bottom: 60px; 
+    font-family: 'roboto';
+    border-radius: 10px;
+    background-color: #333;
+    color: #fff;
+    height: 90px;
+    width: 260px;
+    font-size: 40px;
+    cursor: pointer;   
+}
+
+#boton-jugar:hover {
+    background: linear-gradient(#0fb9fc, #ba30f1);
+    color: #333;
+}
