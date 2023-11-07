@@ -34,3 +34,28 @@ p {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     font-size: large;
 }
+
+.topnav {
+    top: 0;
+    background-color: #333;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+}
+
+.topnav a {
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    flex: 1;
+}
+
+.topnav a:hover {
+    background: linear-gradient(#0fb9fc, #ba30f1);
+    color: #333;
+}
