@@ -1,0 +1,36 @@
+:root {
+    --colorTextos: #49454567;
+}
+body {
+    font-family: 'Roboto';
+    background: linear-gradient(to right, #0fb9fc, #ba30f1);
+    height: 750px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    font-family: 'Roboto';
+    font-size: 30px;
+    color: white;
+    font-style: italic;
+}
+
+#submit-btn {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+  }
+
+#input {
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    font-size: large;
+}
