@@ -1,89 +1,183 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Clasificacion</title>
-    <link rel="stylesheet" type="text/css" href="../css/clasificacion.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
-</head>
+    <link rel="stylesheet" type="text/css" href="../css/clasificacion.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
+    <div class="topnav">
+      <a href="main.html" id="Inicio">Inicio</a>
+      <a href="chat_buscar.html" id="chats">Chats</a>
+      <a href="clasificacion.html" id="clasificacion">Clasificación</a>
+      <a href="tienda.html" id="tienda">Tienda</a>
+      <a href="profile.html" id="perfil">Perfil</a>
+    </div>
+    <br />
     <div class="clasificacion-container">
-        <img id="lupa" src="../../images/search.webp" alt="lupa">
-        <input type="text" id="search-input" placeholder="BUSCAR">
-        <ol class="clasificacion-list">
-            <li class="clasificacion-item">
-                <div class="perfil"><img src="../../images/profile_default.jpg" alt="Foto de perfil"></div>
-                <div class="ranking">1</div>
-                <div class="nombre">NICK</div>
-                <div class="puntos">999</div>
-            </li>
-            <li class="clasificacion-item">
-                <div class="perfil"><img src="../../images/profile_default.jpg" alt="Foto de perfil"></div>
-                <div class="ranking">2</div>
-                <div class="nombre">NICK</div>
-                <div class="puntos">978</div>
-            </li>
-            <li class="clasificacion-item">
-                <div class="perfil"><img src="../../images/profile_default.jpg" alt="Foto de perfil"></div>
-                <div class="ranking">3</div>
-                <div class="nombre">NICK</div>
-                <div class="puntos">950</div>
-            </li>
-            <li class="clasificacion-item">
-                <div class="perfil"><img src="../../images/profile_default.jpg" alt="Foto de perfil"></div>
-                <div class="ranking">4</div>
-                <div class="nombre">NICK</div>
-                <div class="puntos">938</div>
-            </li>
-            <li class="clasificacion-item">
-                <div class="perfil"><img src="../../images/profile_default.jpg" alt="Foto de perfil"></div>
-                <div class="ranking">5</div>
-                <div class="nombre">NICK</div>
-                <div class="puntos">930</div>
-            </li>
-            <li class="clasificacion-item">
-                <div class="perfil"><img src="../../images/profile_default.jpg" alt="Foto de perfil"></div>
-                <div class="ranking">6</div>
-                <div class="nombre">NICK</div>
-                <div class="puntos">929</div>
-            </li>
-            <li class="clasificacion-item">
-                <div class="perfil"><img src="../../images/profile_default.jpg" alt="Foto de perfil"></div>
-                <div class="ranking">7</div>
-                <div class="nombre">NICK</div>
-                <div class="puntos">899</div>
-            </li>
-            <li class="clasificacion-item">
-                <div class="perfil"><img src="../../images/profile_default.jpg" alt="Foto de perfil"></div>
-                <div class="ranking">8</div>
-                <div class="nombre">NICK</div>
-                <div class="puntos">878</div>
-            </li>
-            <li class="clasificacion-item">
-                <div class="perfil"><img src="../../images/profile_default.jpg" alt="Foto de perfil"></div>
-                <div class="ranking">9</div>
-                <div class="nombre">NICK</div>
-                <div class="puntos">850</div>
-            </li>
-            <li class="clasificacion-item">
-                <div class="perfil"><img src="../../images/profile_default.jpg" alt="Foto de perfil"></div>
-                <div class="ranking">10</div>
-                <div class="nombre">NICK</div>
-                <div class="puntos">838</div>
-            </li>
-            <li class="clasificacion-item">
-                <div class="perfil"><img src="../../images/profile_default.jpg" alt="Foto de perfil"></div>
-                <div class="ranking">11</div>
-                <div class="nombre">NICK</div>
-                <div class="puntos">830</div>
-            </li>
-            <li class="clasificacion-item">
-                <div class="perfil"><img src="../../images/profile_default.jpg" alt="Foto de perfil"></div>
-                <div class="ranking">12</div>
-                <div class="nombre">NICK</div>
-                <div class="puntos">829</div>
-            </li>
-
+      <img id="lupa" src="../../images/search.webp" alt="lupa" />
+      <input type="text" id="search-input" placeholder="BUSCAR" />
+      <ul class="clasificacion-list">
+        <li class="clasificacion-item">
+          <img
+            class="fotoPerfil"
+            src="../../images/profile_default.jpg"
+            alt="fotoPerfil"
+          />
+          <span class="info-usuario">
+            <span class="nombre">Usuario 1</span>
+            <span class="puntos">Puntos: XX</span>
+          </span>
+        </li>
+        <li class="clasificacion-item">
+          <img
+            class="fotoPerfil"
+            src="../../images/profile_default.jpg"
+            alt="fotoPerfil"
+          />
+          <span class="info-usuario">
+            <span class="nombre">Usuario 2</span>
+            <span class="puntos">Puntos: XX</span>
+          </span>
+        </li>
+        <li class="clasificacion-item">
+          <img
+            class="fotoPerfil"
+            src="../../images/profile_default.jpg"
+            alt="fotoPerfil"
+          />
+          <span class="info-usuario">
+            <span class="nombre">Usuario 3</span>
+            <span class="puntos">Puntos: XX</span>
+          </span>
+        </li>
+        <li class="clasificacion-item">
+          <img
+            class="fotoPerfil"
+            src="../../images/profile_default.jpg"
+            alt="fotoPerfil"
+          />
+          <span class="info-usuario">
+            <span class="nombre">Usuario 4</span>
+            <span class="puntos">Puntos: XX</span>
+          </span>
+        </li>
+        <li class="clasificacion-item">
+          <img
+            class="fotoPerfil"
+            src="../../images/profile_default.jpg"
+            alt="fotoPerfil"
+          />
+          <span class="info-usuario">
+            <span class="nombre">Usuario 5</span>
+            <span class="puntos">Puntos: XX</span>
+          </span>
+        </li>
+        <li class="clasificacion-item">
+          <img
+            class="fotoPerfil"
+            src="../../images/profile_default.jpg"
+            alt="fotoPerfil"
+          />
+          <span class="info-usuario">
+            <span class="nombre">Usuario 6</span>
+            <span class="puntos">Puntos: XX</span>
+          </span>
+        </li>
+        <li class="clasificacion-item">
+          <img
+            class="fotoPerfil"
+            src="../../images/profile_default.jpg"
+            alt="fotoPerfil"
+          />
+          <span class="info-usuario">
+            <span class="nombre">Usuario 7</span>
+            <span class="puntos">Puntos: XX</span>
+          </span>
+        </li>
+        <li class="clasificacion-item">
+          <img
+            class="fotoPerfil"
+            src="../../images/profile_default.jpg"
+            alt="fotoPerfil"
+          />
+          <span class="info-usuario">
+            <span class="nombre">Usuario 8</span>
+            <span class="puntos">Puntos: XX</span>
+          </span>
+        </li>
+        <li class="clasificacion-item">
+          <img
+            class="fotoPerfil"
+            src="../../images/profile_default.jpg"
+            alt="fotoPerfil"
+          />
+          <span class="info-usuario">
+            <span class="nombre">Usuario 9</span>
+            <span class="puntos">Puntos: XX</span>
+          </span>
+        </li>
+        <li class="clasificacion-item">
+          <img
+            class="fotoPerfil"
+            src="../../images/profile_default.jpg"
+            alt="fotoPerfil"
+          />
+          <span class="info-usuario">
+            <span class="nombre">Usuario 10</span>
+            <span class="puntos">Puntos: XX</span>
+          </span>
+        </li>
+        <li class="clasificacion-item">
+          <img
+            class="fotoPerfil"
+            src="../../images/profile_default.jpg"
+            alt="fotoPerfil"
+          />
+          <span class="info-usuario">
+            <span class="nombre">Usuario 11</span>
+            <span class="puntos">Puntos: XX</span>
+          </span>
+        </li>
+        <li class="clasificacion-item">
+          <img
+            class="fotoPerfil"
+            src="../../images/profile_default.jpg"
+            alt="fotoPerfil"
+          />
+          <span class="info-usuario">
+            <span class="nombre">Usuario 12</span>
+            <span class="puntos">Puntos: XX</span>
+          </span>
+        </li>
+        <li class="clasificacion-item">
+          <img
+            class="fotoPerfil"
+            src="../../images/profile_default.jpg"
+            alt="fotoPerfil"
+          />
+          <span class="info-usuario">
+            <span class="nombre">Usuario 13</span>
+            <span class="puntos">Puntos: XX</span>
+          </span>
+        </li>
+        <li class="clasificacion-item">
+          <img
+            class="fotoPerfil"
+            src="../../images/profile_default.jpg"
+            alt="fotoPerfil"
+          />
+          <span class="info-usuario">
+            <span class="nombre">Usuario 14</span>
+            <span class="puntos">Puntos: XX</span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </body>
 </html>
