@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "express": "^4.18.2",
     "react-magic-motion": "^1.0.9"
   }
 }
