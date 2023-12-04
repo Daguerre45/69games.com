@@ -5,10 +5,15 @@ const cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const PORT = process.env.PORT || 3000;
 
-var indexRouter = require('./routes/index');
+const indexRouter = require('./routes/index');
+const registerRouter = require('./routes/register');
+const chatsRouter = require('./routes/chats');
+const clasificacionRouter = require('./routes/clasificacion');
+const tiendaRouter = require('./routes/tienda');
 
-var app = express();
+const app = express();
 
+app.locals.title = "REGISTER"
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -20,6 +25,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/register', registerRouter);
+app.use('/chats', chatsRouter);
+app.use('/clasificacion', clasificacionRouter);
+app.use('/tienda', tiendaRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
