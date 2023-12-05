@@ -6,7 +6,7 @@ var logger = require('morgan');
 const PORT = process.env.PORT || 3000;
 
 const indexRouter = require('./routes/index');
-const registerRouter = require('./routes/register');
+const perfilRouter = require('./routes/perfil');
 const chatsRouter = require('./routes/chats');
 const clasificacionRouter = require('./routes/clasificacion');
 const tiendaRouter = require('./routes/tienda');
@@ -26,7 +26,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/register', registerRouter);
+app.use('/perfil', perfilRouter);
 app.use('/chats', chatsRouter);
 app.use('/clasificacion', clasificacionRouter);
 app.use('/tienda', tiendaRouter);

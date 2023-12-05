@@ -1,4 +1,14 @@
 <%- include("header", {}) %>
 <h1><%= title %></h1>
-<p>Welcome to CHATS <%= title %></p>
+<div class="chat-container">
+    <img id="lupa" src="..\..\images\search.webp" alt="lupa">
+    <input type="text" id="search-input" placeholder="BUSCAR">
+    <ul class="chat-list">
+    <li class="chat-item">Chat 1</li>
+    <li class="chat-item">Chat 2</li>
+    <li class="chat-item">Chat 3</li>
+    <li class="chat-item">Chat 4</li>
+    <li class="chat-item">Chat 5</li>
+    </ul>
+</div>
 <%- include("footer", {}) %>
