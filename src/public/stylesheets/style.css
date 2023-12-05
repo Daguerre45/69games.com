@@ -90,3 +90,32 @@ body {
     width: 500px;
     height: 500px;
   }
+
+  #submit-btn-feedback {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+  }
+
+#input-feedback {
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    font-size: large;
+    
+}
+
+#container-feedback {
+    text-align: center; 
+    margin: auto; 
+    width: 70%; 
+}
+
+#input-feedback {
+    width: 100%;
+}

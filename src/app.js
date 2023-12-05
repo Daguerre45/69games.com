@@ -10,6 +10,7 @@ const registerRouter = require('./routes/register');
 const chatsRouter = require('./routes/chats');
 const clasificacionRouter = require('./routes/clasificacion');
 const tiendaRouter = require('./routes/tienda');
+const feedbackRouter = require('./routes/feedback');
 
 const app = express();
 
@@ -29,6 +30,7 @@ app.use('/register', registerRouter);
 app.use('/chats', chatsRouter);
 app.use('/clasificacion', clasificacionRouter);
 app.use('/tienda', tiendaRouter);
+app.use('/feedback', feedbackRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
