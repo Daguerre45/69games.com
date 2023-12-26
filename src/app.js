@@ -3,11 +3,11 @@ var express = require('express');
 var path = require('path');
 const cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const PORT = process.env.PORT || 3000;
 
 const indexRouter = require('./routes/index');
 const perfilRouter = require('./routes/perfil');
 const chatsRouter = require('./routes/chats');
+const chatsUnicoRouter = require('./routes/chatsUnico');
 const clasificacionRouter = require('./routes/clasificacion');
 const tiendaRouter = require('./routes/tienda');
 const feedbackRouter = require('./routes/feedback');
@@ -28,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/perfil', perfilRouter);
 app.use('/chats', chatsRouter);
+app.use('/chatsUnico', chatsUnicoRouter);
 app.use('/clasificacion', clasificacionRouter);
 app.use('/tienda', tiendaRouter);
 app.use('/feedback', feedbackRouter);
@@ -50,6 +51,3 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 
-app.listen(PORT, () => {
-  console.log(`Servidor escuchando en el puerto ${PORT}`);
-});
