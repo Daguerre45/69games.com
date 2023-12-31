@@ -1,14 +1,13 @@
+<!-- chat.ejs -->
 <%- include("header", {}) %>
 <h1><%= title %></h1>
 <div class="chat-container">
-    <img id="lupa" src="..\..\images\search.webp" alt="lupa">
-    <input type="text" id="search-input" placeholder="BUSCAR">
+    <!-- Lista de Chats -->
     <ul class="chat-list">
-    <li class="chat-item">Chat 1</li>
-    <li class="chat-item">Chat 2</li>
-    <li class="chat-item">Chat 3</li>
-    <li class="chat-item">Chat 4</li>
-    <li class="chat-item">Chat 5</li>
+        <li class="chat-item"><a href="/chatsUnico/usuario1">Usuario 1</a></li>
+        <li class="chat-item"><a href="/chatsUnico/usuario2">Usuario 2</a></li>
+        <!-- Agrega más usuarios según sea necesario -->
     </ul>
 </div>
+
 <%- include("footer", {}) %>

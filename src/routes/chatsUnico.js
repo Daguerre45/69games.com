@@ -2,8 +2,9 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('chatsUnico', { title: 'CHAT UNICO' });
+router.get('/:usuario', function(req, res, next) {
+  const usuarioDestino = req.params.usuario;
+  res.render('chatsUnico', { title: 'CHAT UNICO', usuarioDestino });
 });
 
 module.exports = router;

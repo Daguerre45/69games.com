@@ -4,6 +4,7 @@ var path = require('path');
 const cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+
 const indexRouter = require('./routes/index');
 const perfilRouter = require('./routes/perfil');
 const chatsRouter = require('./routes/chats');
@@ -13,6 +14,7 @@ const tiendaRouter = require('./routes/tienda');
 const feedbackRouter = require('./routes/feedback');
 
 const app = express();
+
 
 app.locals.title = "REGISTER"
 // view engine setup

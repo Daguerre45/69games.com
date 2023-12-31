@@ -1,31 +1,32 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title><%= title %></title>
-    <link rel="stylesheet" href="/stylesheets/chatsUnico.css"/>
-    <script src="/javascripts/chatsUnico.js" defer></script>
-    <script src="/socket.io/socket.io.js" defer></script>
-</head>
+<!-- chatsUnico.ejs -->
+
+<title><%= title %></title>
+<link rel="stylesheet" href="/stylesheets/chatsUnico.css"/>
+<script src="/socket.io/socket.io.js" defer></script>
+<script src="/javascripts/chatsUnico.js" defer></script>
+
+
+
 <body>
     <div class="chat-container">
+        <!-- Encabezado del Chat -->
         <div class="chat-header">
             <button id="salir">SALIR</button>
             <div class="profile_image">
                 <img src="/images/profile_default.jpg" alt="Profile Image">
             </div>
-            <div id="nick">NICK</div>
+            <div id="nick">Usuario Destino</div>
         </div>
-        <div class="chat-messages">
-            <div class="message received">
-                <div class="message-content">HOLAAAAAA!</div>
-            </div>
-            <div class="message sent">
-                <div class="message-content">Holaaa que tall!</div>
-            </div>
+
+        <!-- Mensajes del Chat -->
+        <div class="chat-messages" id="chat-messages">
+            <!-- Los mensajes se añadirán dinámicamente aquí usando JavaScript -->
         </div>
+
+        <!-- Entrada del Chat -->
         <div class="chat-input">
-            <textarea placeholder="Escribe algo ..."></textarea>
-            <button>Send</button>
+            <textarea id="mensaje-input" placeholder="Escribe algo ..."></textarea>
+            <button onclick="enviarMensaje()">Send</button>
         </div>
     </div>
 </body>
