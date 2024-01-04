@@ -149,6 +149,22 @@ body {
   margin: auto;
 }
 
+.foto button {
+    font-family: 'Roboto';
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: black;
+    margin: 0 auto; /* Esto centrará el botón horizontalmente */
+    display: block;
+}
+  
+.foto button:hover {
+    background: #fff;
+    color: #49454567;
+}
+
 .feedback {
   text-align: right;
   margin-right: 20px;
@@ -233,4 +249,29 @@ body {
     background-color: #33135C;
     cursor: pointer;
     color: white;
+}
+/* Estilo del footer */
+footer {
+    background-color: #333;
+    color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo de los enlaces del footer */
+footer a {
+    color: #f2f2f2;
+    text-decoration: none;
+    padding: 10px;
+}
+
+/* Efecto de hover para los enlaces del footer */
+footer a:hover {
+    background: linear-gradient(#0fb9fc, #ba30f1);
+    color: #333;
+}
+.logo img {
+    width: 50px; /* Ancho específico */
+    height: 50px; /* Alto específico */
 }
