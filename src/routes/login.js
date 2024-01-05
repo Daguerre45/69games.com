@@ -17,8 +17,11 @@ router.post('/', async function(req, res, next) {
     return res.render('login', { title: 'SW1', errorMessage: 'Nombre de usuario o contraseña incorrectos' });
   }
 
+  // Autenticación exitosa, establecer la sesión
+  req.session.user = user;
+
   console.log('Usuario autenticado:', user);
-  res.redirect('/'); // Cambia esto según la ruta deseada después del inicio de sesión
+  res.redirect('/index'); // Redirigir a la página principal
 });
 
 module.exports = router;

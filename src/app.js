@@ -1,9 +1,11 @@
 var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
+const express = require('express');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+const mongoose = require('mongoose');
+const path = require('path');
 const cookieParser = require('cookie-parser');
-var logger = require('morgan');
-
+const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const perfilRouter = require('./routes/perfil');
@@ -15,23 +17,19 @@ const feedbackRouter = require('./routes/feedback');
 const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
 
-
-
 const app = express();
-
-const mongoose = require('mongoose');
 
 const mongoURI = 'mongodb+srv://niggle1510:95l5RR42aV5tgBNf@cluster0.em9jipn.mongodb.net/?retryWrites=true&w=majority';
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
-
 const db = mongoose.connection;
+
 db.on('error', console.error.bind(console, 'Error de conexión a MongoDB:'));
 db.once('open', () => {
   console.log('Conectado a MongoDB');
 });
 
+app.locals.title = "REGISTER";
 
-app.locals.title = "REGISTER"
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -41,6 +39,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+  secret: 'tu_secreto', 
+  resave: false,
+  saveUninitialized: true,
+  store: new MongoStore({ mongooseConnection: mongoose.connection }),
+}));
 
 app.use('/index', indexRouter);
 app.use('/perfil', perfilRouter);
