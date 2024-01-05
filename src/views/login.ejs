@@ -1,0 +1,35 @@
+<!-- login.ejs -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>69Games</title>
+    <link rel="icon" href="icons/icon.png">
+    <link rel="stylesheet" href="/stylesheets/login.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <form action="/login" method="POST" id="form">
+        <div class="form">
+            <h1>Iniciar Sesión</h1>
+            <div class="grupo">
+                <input type="text" name="username" id="username" required><span class="barra"></span>
+                <label for="username">Nombre</label>
+            </div>
+            <div class="grupo">
+                <input type="password" name="password" id="password" required><span class="barra"></span>
+                <label for="password">Contraseña</label>
+            </div>
+            
+            <button type="submit" id="flecha">➜</button>
+            <button>
+                <a href="/register" id="enlace">Registro</a>
+            </button>
+            <button type="submit" formaction="/guest-login">Entrar como invitado</button>
+            <p class="warnings" id="warnings"></p>
+        </div>
+    </form>
+</body>
+</html>

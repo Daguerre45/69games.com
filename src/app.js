@@ -12,8 +12,23 @@ const chatsUnicoRouter = require('./routes/chatsUnico');
 const clasificacionRouter = require('./routes/clasificacion');
 const tiendaRouter = require('./routes/tienda');
 const feedbackRouter = require('./routes/feedback');
+const loginRouter = require('./routes/login');
+const registerRouter = require('./routes/register');
+
+
 
 const app = express();
+
+const mongoose = require('mongoose');
+
+const mongoURI = 'mongodb+srv://niggle1510:95l5RR42aV5tgBNf@cluster0.em9jipn.mongodb.net/?retryWrites=true&w=majority';
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'Error de conexión a MongoDB:'));
+db.once('open', () => {
+  console.log('Conectado a MongoDB');
+});
 
 
 app.locals.title = "REGISTER"
@@ -27,13 +42,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+app.use('/index', indexRouter);
 app.use('/perfil', perfilRouter);
 app.use('/chats', chatsRouter);
 app.use('/chatsUnico', chatsUnicoRouter);
 app.use('/clasificacion', clasificacionRouter);
 app.use('/tienda', tiendaRouter);
 app.use('/feedback', feedbackRouter);
+app.use('/', loginRouter);
+app.use('/register', registerRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -52,4 +69,3 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
-
