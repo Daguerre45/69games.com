@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const passport = require('passport');
 
 const indexRouter = require('./routes/index');
 const perfilRouter = require('./routes/perfil');
