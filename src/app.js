@@ -18,6 +18,7 @@ const feedbackRouter = require('./routes/feedback');
 const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
 const buscarUsuariosRouter = require('./routes/buscarUsuarios');
+const juegoRouter = require('./routes/juego');
 
 const app = express();
 
@@ -59,6 +60,7 @@ app.use('/feedback', feedbackRouter);
 app.use('/', loginRouter);
 app.use('/register', registerRouter);
 app.use('/buscarUsuarios', buscarUsuariosRouter);
+app.use('/juego',juegoRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
