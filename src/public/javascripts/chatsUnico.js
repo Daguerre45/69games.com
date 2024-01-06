@@ -5,8 +5,16 @@ const socket = io();
 // Escuchar eventos de mensajes desde el servidor
 socket.on('mensaje', (mensaje) => {
     agregarMensaje(mensaje);
+
+    // Guardar el mensaje en la base de datos
+    guardarMensajeEnBD({
+        sender: usuairoActual, // Puedes obtener el nombre del usuario actual de la sesión o de donde sea necesario
+        receiver: usuarioDestino,
+        content: mensaje
+    });
 });
 
+const usuarioDestino = document.getElementById('nick').textContent;
 // Función para enviar mensajes al servidor
 function enviarMensaje() {
     const mensajeInput = document.getElementById('mensaje-input');
@@ -19,7 +27,21 @@ function enviarMensaje() {
         mensajeInput.value = '';
     }
 }
-
+// Función para guardar el mensaje en la base de datos
+function guardarMensajeEnBD(mensaje) {
+    // Aquí deberías usar tu modelo de mensajes para guardar el mensaje en la base de datos
+    // Por ejemplo, si estás utilizando el modelo Message:
+    const Message = require('./models/message.model');
+    
+    const nuevoMensaje = new Message(mensaje);
+    nuevoMensaje.save((err) => {
+        if (err) {
+            console.error('Error al guardar el mensaje:', err);
+        } else {
+            console.log('Mensaje guardado exitosamente');
+        }
+    });
+}
 // Función para agregar mensajes al área de mensajes
 function agregarMensaje(mensaje) {
     const chatMessages = document.getElementById('chat-messages');

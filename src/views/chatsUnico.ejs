@@ -15,14 +15,16 @@
             <div class="profile_image">
                 <img src="/images/profile_default.jpg" alt="Profile Image">
             </div>
-            <div id="nick">Usuario Destino</div>
+            <div id="nick"><%= usuarioDestino %></div>
         </div>
-
-        <!-- Mensajes del Chat -->
-        <div class="chat-messages" id="chat-messages">
-            <!-- Los mensajes se añadirán dinámicamente aquí usando JavaScript -->
+         <!-- Mensajes del Chat -->
+         <div class="chat-messages" id="chat-messages">
+            <% mensajesAnteriores.forEach(mensaje => { %>
+                <div class="message">
+                    <div class="message-content"><%= mensaje.content %></div>
+                </div>
+            <% }); %>
         </div>
-
         <!-- Entrada del Chat -->
         <div class="chat-input">
             <textarea id="mensaje-input" placeholder="Escribe algo ..."></textarea>
