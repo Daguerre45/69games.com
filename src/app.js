@@ -17,6 +17,7 @@ const tiendaRouter = require('./routes/tienda');
 const feedbackRouter = require('./routes/feedback');
 const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
+const buscarUsuariosRouter = require('./routes/buscarUsuarios');
 
 const app = express();
 
@@ -57,6 +58,7 @@ app.use('/tienda', tiendaRouter);
 app.use('/feedback', feedbackRouter);
 app.use('/', loginRouter);
 app.use('/register', registerRouter);
+app.use('/buscarUsuarios', buscarUsuariosRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

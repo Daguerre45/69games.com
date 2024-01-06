@@ -17,6 +17,19 @@ const server = http.createServer(app);
 const io = socketIo(server);
 
 io.on('connection', (socket) => {
+  
+  socket.on('buscarUsuarios', async (term) => {
+    try {
+      // Realizar la búsqueda en la base de datos (puedes ajustar según tu modelo de usuario)
+      const resultados = await User.find({ username: { $regex: new RegExp(term, 'i') } });
+
+      // Enviar los resultados al cliente
+      socket.emit('usuariosEncontrados', resultados);
+    } catch (error) {
+      console.error('Error al buscar usuarios:', error);
+    }
+  });
+
   console.log('Usuario conectado: ' + socket.id);
 
   // Manejar mensajes del cliente

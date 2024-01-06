@@ -186,9 +186,21 @@ body {
   color: #49454567;
 }
 
+#resultados-busqueda {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    width: 48%;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1;
+}
+
 .chat-container {
     height: 95%;
-    width: 95%;
+    width: 50%;
     margin: auto;
     padding: 20px;
     background: #fff;

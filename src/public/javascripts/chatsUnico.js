@@ -41,3 +41,4 @@ document.getElementById('salir').addEventListener('click', function() {
     // Redirigir a la página de chats
     window.location.href = '/chats';
 });
+

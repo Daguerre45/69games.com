@@ -6,4 +6,11 @@ router.get('/', function(req, res, next) {
   res.render('chats', { title: 'CHATS' });
 });
 
+// En el lado del servidor (en la definición de la ruta)
+
+router.get('/:usuario', function(req, res, next) {
+  const usuarioSeleccionado = req.params.usuario;
+  // Lógica para cargar el historial de mensajes y renderizar la página
+});
+
 module.exports = router;

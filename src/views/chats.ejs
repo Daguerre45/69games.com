@@ -1,11 +1,16 @@
 <!-- chat.ejs -->
 <%- include("header", {}) %>
+<script src="/javascripts/chats.js" defer></script>
 <h1><%= title %></h1>
 <div class="chat-container">
+    <img id="lupa" src="..\..\images\search.webp" alt="lupa">
+    <input type="text" id="search-input" placeholder="BUSCAR" oninput="buscarUsuarios()">
+    <!-- Lista de Usuarios Encontrados -->
+    <ul id="resultados-busqueda" class="chat-list"></ul>
     <!-- Lista de Chats -->
     <ul class="chat-list">
-        <li class="chat-item"><a href="/chatsUnico/usuario1">Usuario 1</a></li>
-        <li class="chat-item"><a href="/chatsUnico/usuario2">Usuario 2</a></li>
+        <li class="chat-item"><a href="/chatsUnico/Alberto">Alberto</a></li>
+        <li class="chat-item"><a href="/chatsUnico/EXCALOFRIO">EXCALOFRIO</a></li>
         <!-- Agrega más usuarios según sea necesario -->
     </ul>
 </div>
