@@ -1,15 +1,19 @@
 <%- include("header", {}) %>
-	<div class="profile_image">
-            <img src="../../images/profile_default.jpg" alt="Foto de perfil">
-        </div>
-        <div class="foto">
-            <input type="file" id="input_foto" style="display: none;">
-            <button id="boton_cambiar_foto">CAMBIAR FOTO</button>
-        </div>
-        <div class="profile_data">
-            <label for="">Nick: </label><label id="user_nick"> <%= username %></label><br>
-            <label for="">Email: </label><label id="user_mail"> <%= correo %></label><br>
-            <label for="">Edad: </label><label id="user_age">21</label>
-        </div>
+<div class="profile_image">
+    <img src="<%= imageSrc %>" alt="Profile Image" />
+</div>
+<div class="foto">
+  <form action="/perfil/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="image" accept="image/*" />
+    <button type="submit">Upload Image</button>
+  </form>
+</div>
+<div class="profile_data">
+  <label for="">Nick: </label><label id="user_nick"> <%= username %></label
+  ><br />
+  <label for="">Email: </label><label id="user_mail"> <%= correo %></label
+  ><br />
+  <label for="">Edad: </label><label id="user_age">21</label>
+</div>
 <script src="javascripts/perfil.js" defer></script>
 <%- include("footer", {}) %>
