@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
   res.render('feedback', { title: 'FEEDBACK' });
 });
 
-router.post('/', async function(req, res, next) {
+router.post('/feedback', async function(req, res, next) {
   const user = req.session.user.username
   const feedback = req.body.input-feedback
 
@@ -15,5 +15,7 @@ router.post('/', async function(req, res, next) {
   await newFeedback.save();
 
   console.log('Feedback enviado de usuario: ', user);
+  res.redirect('/feedback'); 
+
 });
 module.exports = router;
