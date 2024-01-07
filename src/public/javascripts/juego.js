@@ -1,6 +1,10 @@
 const platformImage = document.getElementById('platformImage')
 const backgroundImage = document.getElementById('backgroundImage')
 const hillsImage = document.getElementById('hillsImage')
+const spriteRunLeft = document.getElementById('spriteRunLeft')
+const spriteRunRight = document.getElementById('spriteRunRight')
+const spriteStandLeft = document.getElementById('spriteStandLeft')
+const spriteStandRight = document.getElementById('spriteStandRight')
 
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
@@ -9,7 +13,7 @@ canvas.width = 1024
 canvas.height = 576
 
 const gravity = 0.2
-
+const gameSpeed = 1;
 class Player {
     constructor(){
         this.speed = 4
@@ -21,21 +25,42 @@ class Player {
             x:0,
             y:0
         }
-        this.width = 30
-        this.height = 30
+        this.width = 66
+        this.height = 150
+        this.frame = 0
+        this.spriteStandRight=spriteStandRight
+        this.sprites = {
+            stand:{
+                right: spriteStandRight,
+                left: spriteStandLeft,
+                cropWdith:177,
+                width:66
+            },
+            run:{
+                right: spriteRunRight, 
+                left: spriteRunLeft, 
+                cropWdith:341,
+                width:127.875
+            }
+        }
+        this.currentSprite = this.sprites.stand.right
+        this.currentCropWidth = 177
     }
 
     draw(){
-        c.fillStyle = 'red'
-        c.fillRect(this.position.x, this.position.y, this.width, this.height)
+        c.drawImage(this.currentSprite,this.currentCropWidth* this.frame,0,this.currentCropWidth,400, this.position.x, this.position.y,
+            this.width, this.height)
     }
 
     update(){
-        this.draw()
-        this.position.y += this.velocity.y
-        this.position.x += this.velocity.x
-        if(this.position.y +this.height +this.velocity.y <= canvas.height){
-            this.velocity.y += gravity
+        this.frame++;
+        if (this.frame > 59 && this.currentSprite === (this.sprites.stand.right || this.speed.stand.left)) this.frame = 0;
+        else if (this.frame > 29 && (this.currentSprite === this.sprites.run.right || this.sprites.run.left)) this.frame = 0;
+        this.draw();
+        this.position.y += this.velocity.y * gameSpeed; // Adjusted for game speed
+        this.position.x += this.velocity.x * gameSpeed; // Adjusted for game speed
+        if (this.position.y + this.height + this.velocity.y <= canvas.height) {
+            this.velocity.y += gravity * gameSpeed; // Adjusted for game speed
         }
     }
 }
@@ -238,7 +263,7 @@ function animate(){
 
     if (keys.right.pressed && player.position.x < 400) {
         player.velocity.x = player.speed;
-    } else if (keys.left.pressed && player.position.x > 100) {
+    } else if ((keys.left.pressed && player.position.x > 100) || keys.left.pressed && scrollOffset === 0 && player.position.x > 0) {
         player.velocity.x = -player.speed;
     } else {
         player.velocity.x = 0;
@@ -257,7 +282,7 @@ function animate(){
                     plataform.update();
                 }
             });
-        } else if (keys.left.pressed) {
+        } else if (keys.left.pressed && scrollOffset > 0) {
             scrollOffset -= player.speed;
             background.forEach(background => {
                 background.position.x += player.speed * 0.66;
@@ -325,6 +350,9 @@ addEventListener('keydown', ({ keyCode }) => {
         case 65:
             console.log('left')
             keys.left.pressed = true
+            player.currentSprite = player.sprites.run.left
+            player.currentCropWidth = player.sprites.run.cropWdith
+            player.width = player.sprites.run.width
             break
         case 83:
             console.log('down')
@@ -332,6 +360,9 @@ addEventListener('keydown', ({ keyCode }) => {
         case 68:
             console.log('right')
             keys.right.pressed = true
+            player.currentSprite = player.sprites.run.right
+            player.currentCropWidth = player.sprites.run.cropWdith
+            player.width = player.sprites.run.width
             break
         case 87:
             console.log('up')
@@ -346,6 +377,9 @@ addEventListener('keyup', ({ keyCode }) => {
         case 65:
             console.log('left')
             keys.left.pressed = false
+            player.currentSprite = player.sprites.stand.left
+            player.currentCropWidth = player.sprites.stand.cropWdith
+            player.width = player.sprites.stand.width
             break
         case 83:
             console.log('down')
@@ -353,6 +387,9 @@ addEventListener('keyup', ({ keyCode }) => {
         case 68:
             console.log('right')
             keys.right.pressed = false
+            player.currentSprite = player.sprites.stand.right
+            player.currentCropWidth = player.sprites.stand.cropWdith
+            player.width = player.sprites.stand.width
             break
         case 87:
             console.log('up')
