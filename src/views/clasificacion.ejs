@@ -1,4 +1,41 @@
 <%- include("header", {}) %>
-<h1><%= title %></h1>
-<p>Welcome to CLASIFICACION <%= title %></p>
+<link rel="stylesheet" href="/stylesheets/clasificacion.css"/>
+<body>
+    <div class="topnav">
+      <a href="main.html" id="Inicio">Inicio</a>
+      <a href="chat_buscar.html" id="chats">Chats</a>
+      <a href="clasificacion.html" id="clasificacion">Clasificación</a>
+      <a href="tienda.html" id="tienda">Tienda</a>
+      <a href="profile.html" id="perfil">Perfil</a>
+    </div>
+    <br />
+    <div class="clasificacion-container">
+      <img id="lupa" src="../../images/search.webp" alt="lupa" />
+      <input type="text" id="search-input" placeholder="BUSCAR" />
+      <ul class="clasificacion-list">
+        <li class="clasificacion-item">
+          <img
+            class="fotoPerfil"
+            src="../../images/profile_default.jpg"
+            alt="fotoPerfil"
+          />
+          <span class="info-usuario">
+            <span class="nombre">Usuario 1</span>
+            <span class="puntos">Puntos: XX</span>
+          </span>
+        </li>
+        <li class="clasificacion-item">
+          <img
+            class="fotoPerfil"
+            src="../../images/profile_default.jpg"
+            alt="fotoPerfil"
+          />
+          <span class="info-usuario">
+            <span class="nombre">Usuario 2</span>
+            <span class="puntos">Puntos: XX</span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </body>
 <%- include("footer", {}) %>
