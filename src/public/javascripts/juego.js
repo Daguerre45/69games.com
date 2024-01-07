@@ -8,6 +8,7 @@ const spriteStandRight = document.getElementById('spriteStandRight')
 
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
+let points = 0;
 
 canvas.width = 1024
 canvas.height = 576
@@ -154,7 +155,7 @@ let startTime;
 let gameOver = false;
 
 plataforms.push(
-     new Plataform({ x: platformImage.width * 5 + 500, y: 470 }),
+    new Plataform({ x: platformImage.width * 5 + 500, y: 470 }),
     new Plataform({ x: platformImage.width * 6 + 700, y: 470 }),
     new Plataform({ x: platformImage.width * 7 + 900, y: 470 }),
     new Plataform({ x: platformImage.width * 8 + 1100, y: 470 }),
@@ -245,6 +246,22 @@ function init(){
 
 function animate(){
     if (gameOver) {
+        const gameOverMessage = `Your final score was: ${points} points`;
+
+        // Medir el ancho y la altura del texto
+        const messageWidth = c.measureText(gameOverMessage).width;
+        const messageHeight = 40; // Ajusta la altura según tus necesidades
+
+        // Centrar el mensaje en la pantalla
+        const centerX = canvas.width / 2 - messageWidth / 2;
+        const centerY = canvas.height / 2;
+
+        // Mostrar el mensaje con el fondo ajustado al texto
+        c.fillStyle = 'black';
+        c.fillRect(centerX - 10, centerY - 30, messageWidth + 20, messageHeight); // Fondo del mensaje
+        c.fillStyle = 'white';
+        c.font = '30px Arial';
+        c.fillText(gameOverMessage, centerX, centerY); 
         return;
     }
     requestAnimationFrame(animate)
@@ -259,6 +276,7 @@ function animate(){
     plataforms.forEach(plataform => {
         plataform.draw()
     });
+    points += 1;
     player.update()
 
     if (keys.right.pressed && player.position.x < 400) {
@@ -319,7 +337,7 @@ function animate(){
         const endTime = new Date().getTime();
         const totalTime = (endTime - startTime) / 1000; // Tiempo en segundos
 
-        const winMessage = `You win! Time: ${totalTime.toFixed(2)} seconds`;
+        const winMessage = `Your final score was: ${points} points`;
 
         // Medir el ancho y la altura del texto
         const messageWidth = c.measureText(winMessage).width;

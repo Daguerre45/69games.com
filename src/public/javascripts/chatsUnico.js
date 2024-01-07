@@ -27,21 +27,7 @@ function enviarMensaje() {
         mensajeInput.value = '';
     }
 }
-// Función para guardar el mensaje en la base de datos
-function guardarMensajeEnBD(mensaje) {
-    // Aquí deberías usar tu modelo de mensajes para guardar el mensaje en la base de datos
-    // Por ejemplo, si estás utilizando el modelo Message:
-    const Message = require('./models/message.model');
-    
-    const nuevoMensaje = new Message(mensaje);
-    nuevoMensaje.save((err) => {
-        if (err) {
-            console.error('Error al guardar el mensaje:', err);
-        } else {
-            console.log('Mensaje guardado exitosamente');
-        }
-    });
-}
+
 // Función para agregar mensajes al área de mensajes
 function agregarMensaje(mensaje) {
     const chatMessages = document.getElementById('chat-messages');
