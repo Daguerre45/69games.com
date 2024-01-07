@@ -169,7 +169,8 @@ function gameLoop() {
         setTimeout(() => {
             playerLives = 5;
             playerHitpoints = 7;
-            level = 1;
+            level = 0;
+            enemiesHit = 0;
             enemies = [];
             lasers = [];
             gameLoop();
