@@ -6,6 +6,7 @@ router.get('/', function(req, res, next) {
   res.render('feedback', { title: 'FEEDBACK' });
 });
 
+
 router.post('/', async function(req, res, next) {
   let user = req.session.user.username
   let feedback = req.body.textarea
@@ -16,5 +17,6 @@ router.post('/', async function(req, res, next) {
 
   console.log('Feedback enviado de usuario: ', user);
   res.redirect('/feedback');
+
 });
 module.exports = router;
