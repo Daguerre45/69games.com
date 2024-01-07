@@ -9,13 +9,14 @@ router.get('/', function(req, res, next) {
 
 router.post('/', async function(req, res, next) {
   let user = req.session.user.username
-  let feedback = req.body.textarea
+  let feedback = req.body.feedback
 
   
   let newFeedback = new Feedback({user: user, text: feedback})
   await newFeedback.save();
 
   console.log('Feedback enviado de usuario: ', user);
+  console.log('Feedback: ', feedback);
   res.redirect('/feedback');
 
 });
