@@ -318,12 +318,32 @@ function animate(){
         gameOver = true;
         const endTime = new Date().getTime();
         const totalTime = (endTime - startTime) / 1000; // Tiempo en segundos
+        const newScore = Math.floor(10000 / totalTime);
+
+        // Enviar la puntuación al servidor
+        fetch('/juego/gameover', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ score: newScore }),
+        })
+            .then(response => response.json())
+            .then(data => {
+            if (data.success) {
+                console.log('Puntuación actualizada con éxito');
+            } else {
+                console.error('Error al actualizar la puntuación');
+            }
+            })
+            .catch(error => {
+            console.error('Error de red:', error);
+            });
 
         const winMessage = `You win! Time: ${totalTime.toFixed(2)} seconds`;
 
         // Medir el ancho y la altura del texto
         const messageWidth = c.measureText(winMessage).width;
-        const messageHeight = 40; // Ajusta la altura según tus necesidades
 
         // Centrar el mensaje en la pantalla
         const centerX = canvas.width / 2 - messageWidth / 2;
