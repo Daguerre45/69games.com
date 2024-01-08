@@ -1,27 +1,35 @@
-<script type="module" src="/javascripts/juego.js"  defer></script>
-<canvas>
-    
-</canvas>
+<link rel="stylesheet" href="/stylesheets/style.css" />
+<script type="module" src="/javascripts/juego.js" defer></script>
+<canvas> </canvas>
 <body>
-    <img id="platformImage" src="/images/platform.png" alt="Platform Image">
-    <img id="backgroundImage" src="/images/background.png" alt="background">
-    <img id="spriteRunLeft" src="/images/spriteRunLeft.png">
-    <img id="spriteRunRight" src="/images/spriteRunRight.png">
-    <img id="spriteStandLeft" src="/images/spriteStandLeft.png">
-    <img id="spriteStandRight" src="/images/spriteStandRight.png">
-    <img id="hillsImage" src="/images/hills.png" alt="HILLS">
+  <div class="goBack">
+    <a href="/index">Go Back</a>
+  </div>
+  <img id="platformImage" src="/images/platform.png" alt="Platform Image" />
+  <img id="backgroundImage" src="/images/background.png" alt="background" />
+  <img id="spriteRunLeft" src="/images/spriteRunLeft.png" />
+  <img id="spriteRunRight" src="/images/spriteRunRight.png" />
+  <img id="spriteStandLeft" src="/images/spriteStandLeft.png" />
+  <img id="spriteStandRight" src="/images/spriteStandRight.png" />
+  <img id="hillsImage" src="/images/hills.png" alt="HILLS" />
 </body>
 
 <style>
-    body{
-        margin: 0;
-        background-color: black;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-    }
-    #platformImage, #backgroundImage, #hillsImage, #spriteStandRight, #spriteRunLeft,#spriteRunRight, #spriteStandLeft {
-        display: none; /* Para ocultar la imagen si no es necesaria en el diseño */
-    }
+  body {
+    margin: 0;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  #platformImage,
+  #backgroundImage,
+  #hillsImage,
+  #spriteStandRight,
+  #spriteRunLeft,
+  #spriteRunRight,
+  #spriteStandLeft {
+    display: none; /* Para ocultar la imagen si no es necesaria en el diseño */
+  }
 </style>

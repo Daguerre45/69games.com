@@ -287,3 +287,26 @@ footer a:hover {
     width: 50px; /* Ancho específico */
     height: 50px; /* Alto específico */
 }
+
+.goBack{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #333; /* Set your desired background color */
+    color: #fff; /* Set your desired text color */
+    padding: 10px; /* Set your desired padding */
+}
+
+.goBack a {
+    color: #fff; /* Set your desired link color */
+    text-decoration: none; /* Remove default underline */
+}
+
+.goBack:hover {
+    background: linear-gradient(#0fb9fc, #ba30f1);
+    color: #333;
+}
+
+.goBack a:hover {
+    color: #333;
+}
