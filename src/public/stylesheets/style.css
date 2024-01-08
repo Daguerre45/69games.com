@@ -310,3 +310,20 @@ footer a:hover {
 .goBack a:hover {
     color: #333;
 }
+
+.gameImages {
+    text-align: center;
+}
+
+.gamesImages:hover{
+    color:#0fb9fc
+}
+
+#titles{
+    text-align:center;
+}
+#titles h2{
+    display: inline-block;
+    margin-right: 30px;
+    margin-left: 30px;
+}

@@ -1,4 +1,16 @@
 <%- include("header", {}) %>
 <h1><%= title %></h1>
-<p>Welcome to <%= title %></p>
+<h2>Welcome <%= user %>!</h2>
+<body>
+    <div id="titles">
+        <h2>RUNNER GAME</h2>
+        <h2>SPACE INVADERS</h2>
+    </div>
+    
+    <div class="gameImages">
+        <a href="/juego"><img src="<%= runnerImageSrc %>" alt="Runner Game" /></a>
+        <a href="/juego2"> <img src="<%= spaceInvadersSrc%>" alt="Space Invaders" /></a>
+        
+    </div>
+</body>
 <%- include("footer", {}) %>
