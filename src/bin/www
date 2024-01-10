@@ -14,7 +14,12 @@ app.set('port', port);
  */
 
 const server = http.createServer(app);
-const io = socketIo(server);
+const io = socketIo(server, {
+  cors: {
+    origin: 'http://localhost:3000', // o la URL de tu aplicación front-end
+    methods: ['GET', 'POST'],
+  },
+});
 
 io.on('connection', (socket) => {
   
@@ -47,7 +52,7 @@ io.on('connection', (socket) => {
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
+server.listen(port, '0.0.0.0');
 server.on('error', onError);
 server.on('listening', onListening);
 
