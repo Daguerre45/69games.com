@@ -1,18 +1,31 @@
 const socket = io();
+// La siguiente línea se comenta porque no es posible 'require' en el lado del cliente
+// const Message = require('../database/models/message.model');
 
 const usuarioDestino = document.getElementById('nick').textContent;
 
-// Escuchar eventos de mensajes desde el servidor
-socket.on('mensaje', (mensaje) => {
+let usuarioActual; // Esta variable necesita ser asignada de alguna manera
+
+socket.on('mensaje', async (mensaje) => {
     agregarMensaje(mensaje);
 
-    // Guardar el mensaje en la base de datos
-    guardarMensajeEnBD({
-        sender: usuarioActual, // Assuming usuarioActual is defined somewhere
+    // Suponemos que esta función se comunica con el servidor para guardar el mensaje
+    socket.emit('guardarMensaje', {
+        sender: usuarioActual,
         receiver: usuarioDestino,
         content: mensaje
     });
 });
+
+// Función para guardar mensajes en la base de datos
+async function guardarMensajeEnBD(mensaje) {
+    const messageInstance = new Message(mensaje);
+    try {
+        await messageInstance.save();
+    } catch (error) {
+        console.error('Error al guardar mensaje en la base de datos:', error);
+    }
+}
 
 // Función para enviar mensajes al servidor
 function enviarMensaje() {
@@ -37,14 +50,15 @@ function agregarMensaje(mensaje) {
 }
 
 // Evento de teclado para el área de entrada
-document.getElementById('mensaje-input').addEventListener('keydown', function(event) {
+document.getElementById('mensaje-input').addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
         event.preventDefault(); // Evitar que se añada una nueva línea en el textarea
         enviarMensaje();
     }
 });
 
-document.getElementById('salir').addEventListener('click', function() {
+document.getElementById('salir').addEventListener('click', function () {
     // Redirigir a la página de chats
     window.location.href = '/chats';
 });
+
