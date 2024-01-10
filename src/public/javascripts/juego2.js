@@ -31,7 +31,7 @@ let playerHitpoints = 7;
 // Enemy attributes
 const enemyWidth = 50;
 const enemyHeight = 50;
-let enemySpeed = 2;
+let enemySpeed = 1.6;
 let enemies = [];
 let enemiesHit = 0;
 
@@ -42,17 +42,17 @@ const laserSpeed = 5;
 let lasers = [];
 
 // Game state
-let level = 0; // Start with level 1
+let level = 0; 
 
 // Load images
 const background = new Image();
-background.src = "/images/outerspace.png"; // Replace with your image path
+background.src = "/images/outerspace.png";
 const playerImage = new Image();
-playerImage.src = "/images/spaceship.png"; // Replace with your image path
+playerImage.src = "/juego2/playerImage"; 
 const enemyImage = new Image();
-enemyImage.src = "/images/red.png"; // Replace with your image path
+enemyImage.src = "/images/red.png"; 
 const laserImage = new Image();
-laserImage.src = "/images/laser.png"; // Replace with your image path
+laserImage.src = "/images/laser.png"; 
 
 // Function to display player lives and hitpoints
 function displayStats() {

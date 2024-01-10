@@ -7,7 +7,7 @@ const Image = require('../database/models/perfil.model');
 
 router.get('/', async (req, res) => {
   // Retrieve the user's profile image from the database
-  const user = req.session.user; // Replace with the actual user's username
+  const user = req.session.user; 
   const image = await Image.findOne({ user });
 
   // Render the profile page with the image source
