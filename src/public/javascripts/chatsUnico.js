@@ -1,6 +1,6 @@
-// chatsUnico.js
-
 const socket = io();
+
+const usuarioDestino = document.getElementById('nick').textContent;
 
 // Escuchar eventos de mensajes desde el servidor
 socket.on('mensaje', (mensaje) => {
@@ -8,13 +8,12 @@ socket.on('mensaje', (mensaje) => {
 
     // Guardar el mensaje en la base de datos
     guardarMensajeEnBD({
-        sender: usuairoActual, // Puedes obtener el nombre del usuario actual de la sesión o de donde sea necesario
+        sender: usuarioActual, // Assuming usuarioActual is defined somewhere
         receiver: usuarioDestino,
         content: mensaje
     });
 });
 
-const usuarioDestino = document.getElementById('nick').textContent;
 // Función para enviar mensajes al servidor
 function enviarMensaje() {
     const mensajeInput = document.getElementById('mensaje-input');
@@ -49,4 +48,3 @@ document.getElementById('salir').addEventListener('click', function() {
     // Redirigir a la página de chats
     window.location.href = '/chats';
 });
-

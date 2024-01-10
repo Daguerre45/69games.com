@@ -1,32 +1,24 @@
 <%- include("header", {}) %>
+<link rel="stylesheet" href="/stylesheets/clasificación.css">
 <body>
     <div class="clasificacion-container">
       <img id="lupa" src="../../images/search.webp" alt="lupa" />
       <input type="text" id="search-input" placeholder="BUSCAR" />
       <ul class="clasificacion-list">
-        <li class="clasificacion-item">
-          <img
-            class="fotoPerfil"
-            src="../../images/profile_default.jpg"
-            alt="fotoPerfil"
-          />
-          <span class="info-usuario">
-            <span class="nombre">Usuario 1</span>
-            <span class="puntos">Puntos: XX</span>
-          </span>
-        </li>
-        <li class="clasificacion-item">
-          <img
-            class="fotoPerfil"
-            src="../../images/profile_default.jpg"
-            alt="fotoPerfil"
-          />
-          <span class="info-usuario">
-            <span class="nombre">Usuario 2</span>
-            <span class="puntos">Puntos: XX</span>
-          </span>
-        </li>
+        <% users.forEach(user => { %>
+          <li class="clasificacion-item">
+            <img
+              class="fotoPerfil"
+              src="../../images/profile_default.jpg"
+              alt="fotoPerfil"
+            />
+            <span class="info-usuario">
+              <span class="nombre"><%= user.username %></span>
+              <span class="puntos">Puntos: <%= user.points %></span>
+            </span>
+          </li>
+        <% }) %>
       </ul>
     </div>
-  </body>
+</body>
 <%- include("footer", {}) %>
