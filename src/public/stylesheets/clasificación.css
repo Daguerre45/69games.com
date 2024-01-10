@@ -1,131 +1,138 @@
 body {
-    font-family: 'Roboto';
-    background: #49454567;
-    background: linear-gradient(to right, #0fb9fc, #ba30f1);
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0;
-    text-align: center;
-  }
-  
-  .topnav {
-    position: sticky;
-    top: 0;
-    overflow: hidden;
-    background-color: #333;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .topnav a {
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    flex: 1;
-  }
-  
-  .topnav a:hover {
-    background: linear-gradient(#0fb9fc, #ba30f1);
-    color: #333;
-  }
-  
-  .clasificacion-container {
-    height: 95%;
-    width: 95%;
-    margin: auto;
-    padding: 20px;
-    background: #fff;
-    box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    overflow: auto;
-  }
-  
-  .search-bar {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 10px;
-    border: black;
-  }
-  
-  #lupa {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 2px solid var(--colorTextos);
-    background: #fff;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  }
-  
-  #fotoPerfil {
-    width: 20px;
-    height: 20px;
-    margin-left: 10px;
-  }
-  
-  .fotoPerfil {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px; /* Ajusta el margen derecho según tus necesidades */
-    margin-left: 10px;  /* Nuevo margen izquierdo */
-  }
-  .search-icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
-  }
-  
-  #search-input {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid var(--colorTextos);
-    border-radius: 5px;
-  }
-  
-  .clasificacion-list {
-    list-style: none;
-    padding: 0;
-    counter-reset: posicion; /* Inicializa el contador para la posición */
-  }
-  
-  .clasificacion-item {
-    display: flex;
-    align-items: center;
-    background: white;
-    background: linear-gradient(to right, #0fb9fc, #ba30f1);
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.8);
-    border: 1px solid var(--colorTextos);
-    margin-bottom: 5px;
-    color: white;
-  }
-  
-  .clasificacion-item:hover {
-    background: var(--backgroundGradient);
-    background-color: #33135C;
-    cursor: pointer;
-    color: white;
-  }
-  
-  /* Estilo para asignar la posición automáticamente */
-  .clasificacion-item:before {
-    content: counter(posicion); /* Usa el valor del contador para la posición */
-    counter-increment: posicion; /* Incrementa el contador */
-  }
-  
-  .posicion {
-    font-weight: bold;
-    margin-right: 10px;
-    margin-left: 10px; /* Nuevo margen izquierdo */
-  }
-  
-  .info-usuario {
-    display: flex;
-    flex-direction: column;
-  }
+  font-family: 'Roboto';
+  background: #49454567;
+  background: linear-gradient(to right, #0fb9fc, #ba30f1);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  text-align: center;
+}
+
+.topnav {
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+}
+
+.topnav a {
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  flex: 1;
+}
+
+.topnav a:hover {
+  background: linear-gradient(#0fb9fc, #ba30f1);
+  color: #333;
+}
+
+.clasificacion-container {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  overflow: auto;
+  width: 95%;
+  height: 95%;
+}
+
+.clasificacion-table {
+  width: 48%; /* Ajusta según sea necesario para dejar espacio entre las tablas */
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+  border: black;
+}
+
+#lupa {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--colorTextos);
+  background: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+#fotoPerfil {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+}
+
+.fotoPerfil {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px; /* Ajusta el margen derecho según tus necesidades */
+  margin-left: 10px;  /* Nuevo margen izquierdo */
+}
+
+.search-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+#search-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid var(--colorTextos);
+  border-radius: 5px;
+}
+
+.clasificacion-list {
+  list-style: none;
+  padding: 0;
+  counter-reset: posicion; /* Inicializa el contador para la posición */
+}
+
+.clasificacion-item {
+  display: flex;
+  align-items: center;
+  background: white;
+  background: linear-gradient(to right, #0fb9fc, #ba30f1);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--colorTextos);
+  margin-bottom: 5px;
+  color: white;
+}
+
+.clasificacion-item:hover {
+  background: var(--backgroundGradient);
+  background-color: #33135C;
+  cursor: pointer;
+  color: white;
+}
+
+/* Estilo para asignar la posición automáticamente */
+.clasificacion-item:before {
+  content: counter(posicion); /* Usa el valor del contador para la posición */
+  counter-increment: posicion; /* Incrementa el contador */
+}
+
+.posicion {
+  font-weight: bold;
+  margin-right: 10px;
+  margin-left: 10px; /* Nuevo margen izquierdo */
+}
+
+.info-usuario {
+  display: flex;
+  flex-direction: column;
+}

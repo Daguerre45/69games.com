@@ -175,6 +175,26 @@ function gameLoop() {
             lasers = [];
             gameLoop();
         }, 2000);
+
+        fetch('/juego2/gameover', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ score: enemiesHit }),
+        })
+            .then(response => response.json())
+            .then(data => {
+            if (data.success) {
+                console.log('Puntuación actualizada con éxito');
+            } else {
+                console.error('Error al actualizar la puntuación');
+            }
+            })
+            .catch(error => {
+            console.error('Error de red:', error);
+            });
+
         return; // End the current game loop
     }
 

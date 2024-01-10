@@ -16,8 +16,8 @@ router.post('/gameover', async function(req, res, next) {
 
     const user = await User.findById(userId);
 
-    if (!user.points || newScore > user.points) {
-      user.points = newScore;
+    if (!user.scoreRG || newScore > user.scoreRG) {
+      user.scoreRG = newScore;
       await user.save();
     }
 
