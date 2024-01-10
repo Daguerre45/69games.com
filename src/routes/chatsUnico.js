@@ -1,20 +1,23 @@
-// routes/chatsUnico.js
+// routes/chatsUnico.js (correcciones y suposiciones hechas en el código del lado del servidor)
 
 const express = require('express');
+const Message = require('../database/models/messages.model');
+
+
 const router = express.Router();
 
-router.get('/:usuario', async function(req, res, next) {
+router.get('/:usuario', async function (req, res, next) {
   const usuarioDestino = req.params.usuario;
-  const usuairoActual = req.session.user.username;
+  // Corrección del nombre de la variable, asumiendo que 'user' es una propiedad en 'req.session'
+  const usuarioActual = req.session.user.username;
 
-  // Obtener mensajes anteriores desde la base de datos
   try {
     const mensajesAnteriores = await Message.find({
       $or: [
-        { sender: usuairoActual, receiver: usuarioDestino },
-        { sender: usuarioDestino, receiver: 'UsuarioActual' }
+        { sender: usuarioActual, receiver: usuarioDestino },
+        { sender: usuarioDestino, receiver: usuarioActual }
       ]
-    }).sort({ timestamp: 1 }); // Ordenar por fecha ascendente
+    }).sort({ timestamp: 1 });
 
     res.render('chatsUnico', { title: 'CHAT UNICO', usuarioDestino, mensajesAnteriores });
   } catch (error) {
@@ -23,4 +26,6 @@ router.get('/:usuario', async function(req, res, next) {
   }
 });
 
-module.exports = router;
+// Removemos la función duplicada 'guardarMensajeEnBD' ya que se define en el archivo del cliente
+
+module.exports = router; // Corrección de sintaxis

@@ -3,7 +3,7 @@ var router = express.Router();
 const Feedback = require('../database/models/feedback.model');
 
 router.get('/', function(req, res, next) {
-  res.render('feedback', { title: 'FEEDBACK' });
+  res.render('feedback', { title: 'FEEDBACK', user: req.session.user.username });
 });
 
 

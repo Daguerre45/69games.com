@@ -8,6 +8,7 @@
     <title>69Games</title>
     <link rel="icon" href="icons/icon.png">
     <link rel="stylesheet" href="/stylesheets/login.css">
+    <script src="/javascripts/login-register.js" defer></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -27,7 +28,7 @@
             <button>
                 <a href="/register" id="enlace">Registro</a>
             </button>
-            <button type="submit" formaction="/guest-login">Entrar como invitado</button>
+            <button type="submit" onclick="loginAsGuest()">Entrar como invitado</button>
             <p class="warnings" id="warnings"></p>
         </div>
     </form>

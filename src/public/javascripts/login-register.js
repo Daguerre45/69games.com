@@ -58,3 +58,9 @@ function register() {
 
     alert('Registro exitoso. Ahora puedes iniciar sesión.');
 }
+
+function loginAsGuest() {
+    document.getElementById('username').value = 'invitado';
+    document.getElementById('password').value = 'invitado';
+    document.getElementById('form').submit();
+}

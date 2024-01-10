@@ -6,7 +6,7 @@ var fs = require('fs');
 var path = require('path');
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('tienda', { title: 'TIENDA' });
+  res.render('tienda', { title: 'TIENDA', user: req.session.user.username });
 });
 
 // Update player image

@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
   const image = await Image.findOne({ user });
 
   // Render the profile page with the image source
-  res.render('perfil', { title: 'PERFIL', username: req.session.user.username, correo: req.session.user.email, imageSrc: image ? `data:${image.contentType};base64,${image.data.toString('base64')}` : "../../images/profile_default.jpg" });
+  res.render('perfil', { title: 'PERFIL', user: req.session.user.username, correo: req.session.user.email, imageSrc: image ? `data:${image.contentType};base64,${image.data.toString('base64')}` : "../../images/profile_default.jpg" });
 });
 
 router.post('/upload', upload.single('image'), async (req, res) => {
