@@ -2,13 +2,10 @@
 
 const express = require('express');
 const Message = require('../database/models/messages.model');
-
-
 const router = express.Router();
 
 router.get('/:usuario', async function (req, res, next) {
   const usuarioDestino = req.params.usuario;
-  // Corrección del nombre de la variable, asumiendo que 'user' es una propiedad en 'req.session'
   const usuarioActual = req.session.user.username;
 
   try {
@@ -19,12 +16,13 @@ router.get('/:usuario', async function (req, res, next) {
       ]
     }).sort({ timestamp: 1 });
 
-    res.render('chatsUnico', { title: 'CHAT UNICO', usuarioDestino, mensajesAnteriores });
+    res.render('chatsUnico', { title: 'CHAT UNICO', usuarioDestino, mensajesAnteriores, usuarioActual});
   } catch (error) {
     console.error('Error al obtener mensajes anteriores:', error);
     next(error);
   }
 });
+
 
 // Removemos la función duplicada 'guardarMensajeEnBD' ya que se define en el archivo del cliente
 
