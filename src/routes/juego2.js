@@ -1,6 +1,7 @@
 // routes/game2.js
 const express = require('express');
 const router = express.Router();
+var path = require('path');
 const User = require('../database/models/user.model');
 
 router.use(express.json());
@@ -28,21 +29,19 @@ router.post('/gameover', async function(req, res, next) {
   }
 });
 
-// Route to render the player image
 router.get('/playerImage', async function(req, res, next) {
   try {
+    const { user } = req.session; // Assuming you have user information in the session
+
     console.log('Before findOne');
-    const playerData = await SpaceInvaders.findOne({ user: req.session.user });
+    const playerData = await User.findOne({ username: user.username });
     console.log('After findOne');
 
-    if (playerData && playerData.data) {
-      res.contentType(playerData.contentType);
-      res.send(playerData.data.buffer);
+    if (playerData && playerData.route) {
+      res.sendFile(path.join(__dirname, '..', 'public', playerData.route));
     } else {
-      console.log('Before sendFile');
-      const defaultImagePath = path.join(__dirname, '..','public', 'images', 'spaceship.png');
-      res.sendFile(defaultImagePath);
-      console.log('After sendFile');
+      console.error('Player data not found or missing route information');
+      res.status(404).send('Not Found');
     }
   } catch (error) {
     console.error(error);

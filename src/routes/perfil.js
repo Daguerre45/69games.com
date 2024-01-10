@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 
 router.post('/upload', upload.single('image'), async (req, res) => {
   // Handle the image upload
-  const user = req.session.user; // Replace with the actual user's username
+  const user = req.session.user; 
 
   const newImage = new Image({
     user:user,
@@ -27,7 +27,6 @@ router.post('/upload', upload.single('image'), async (req, res) => {
 
   await newImage.save();
 
-  // Redirect to the profile page after the upload is complete
   res.redirect('/perfil');
 });
 
