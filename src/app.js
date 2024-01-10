@@ -7,6 +7,9 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const passport = require('passport');
+const http = require('http');
+const socketIO = require('socket.io');
+
 
 const indexRouter = require('./routes/index');
 const perfilRouter = require('./routes/perfil');
@@ -22,6 +25,8 @@ const juegoRouter = require('./routes/juego');
 const juego2Router = require('./routes/juego2');
 
 const app = express();
+const server = http.createServer(app);
+const io = socketIO(server);
 
 const mongoURI = 'mongodb+srv://niggle1510:95l5RR42aV5tgBNf@cluster0.em9jipn.mongodb.net/?retryWrites=true&w=majority';
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -33,6 +38,28 @@ db.once('open', () => {
 });
 
 app.locals.title = "REGISTER";
+
+io.on('connection', (socket) => {
+  console.log('Usuario conectado:', socket.id);
+
+  socket.on('disconnect', () => {
+    console.log('Usuario desconectado:', socket.id);
+  });
+
+  socket.on('mensaje', async (mensaje) => {
+    agregarMensaje(mensaje);
+
+    // Guardar mensaje en la base de datos
+    await guardarMensajeEnBD({
+      sender: socket.id, // Cambiar a tu lógica de manejo de usuarios
+      receiver: mensaje.receiver,
+      content: mensaje.content,
+    });
+
+    // Propagar el mensaje a todos los clientes conectados
+    io.emit('mensaje', mensaje);
+  });
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

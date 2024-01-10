@@ -2,6 +2,8 @@
 
 const express = require('express');
 const Message = require('../database/models/messages.model');
+
+
 const router = express.Router();
 
 router.get('/:usuario', async function (req, res, next) {

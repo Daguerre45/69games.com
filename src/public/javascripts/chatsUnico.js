@@ -6,7 +6,7 @@ const usuarioDestino = document.getElementById('nick').textContent;
 
 let usuarioActual; // Esta variable necesita ser asignada de alguna manera
 
-socket.on('mensaje', async (mensaje) => {
+socket.on('mensaje', (mensaje) => {
     agregarMensaje(mensaje);
 
     // Suponemos que esta función se comunica con el servidor para guardar el mensaje
@@ -33,8 +33,12 @@ function enviarMensaje() {
     const mensaje = mensajeInput.value;
 
     if (mensaje.trim() !== '') {
-        socket.emit('mensaje', mensaje);
-
+        socket.emit('mensaje',{
+            sender: socket.id, // Cambiar a tu lógica de manejo de usuarios
+            receiver: usuarioDestino,
+            content: mensaje
+        });
+            
         // Limpiar el área de entrada
         mensajeInput.value = '';
     }
@@ -45,7 +49,11 @@ function agregarMensaje(mensaje) {
     const chatMessages = document.getElementById('chat-messages');
     const nuevoMensaje = document.createElement('div');
     nuevoMensaje.className = 'message sent';
-    nuevoMensaje.innerHTML = `<div class="message-content">${mensaje}</div>`;
+
+    // Asegúrate de acceder a la propiedad 'content' del objeto mensaje
+    const contenidoMensaje = mensaje.content || ''; // Asegurarse de manejar mensajes sin contenido
+
+    nuevoMensaje.innerHTML = `<div class="message-content">${contenidoMensaje}</div>`;
     chatMessages.appendChild(nuevoMensaje);
 }
 
