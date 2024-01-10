@@ -18,7 +18,7 @@ router.get('/:usuario', async function(req, res, next) {
       ]
     }).sort({ timestamp: 1 }); // Sort by ascending timestamp
 
-    res.render('chatsUnico', { title: 'CHAT UNICO', usuarioDestino, mensajesAnteriores });
+    res.render('chatsUnico', { title: 'CHAT UNICO', usuarioDestino, mensajesAnteriores, user: req.session.user.username});
   } catch (error) {
     console.error('Error al obtener mensajes anteriores:', error);
     next(error);

@@ -6,7 +6,7 @@ const User = require('../database/models/user.model');
 router.use(express.json());
 
 router.get('/', function(req, res, next) {
-  res.render('juego', { title: 'JUEGO' });
+  res.render('juego', { title: 'JUEGO', user: req.session.user.username});
 });
 
 router.post('/gameover', async function(req, res, next) {

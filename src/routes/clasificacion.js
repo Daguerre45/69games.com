@@ -8,7 +8,7 @@ router.get('/', async function(req, res, next) {
     const users = await User.find().sort({ points: -1 });
 
     // Renderiza el archivo EJS y pasa la lista de usuarios como variable
-    res.render('clasificacion', { users });
+    res.render('clasificacion', { users, user: req.session.user.username});
   } catch (error) {
     console.error('Error al obtener la clasificación:', error);
     next(error);
