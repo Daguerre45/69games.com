@@ -19,6 +19,7 @@ router.post('/gameover', async function(req, res, next) {
 
     if (!user.scoreSI || newScore > user.scoreSI) {
       user.scoreSI = newScore;
+      user.coins = user.coins + newScore;
       await user.save();
     }
 
