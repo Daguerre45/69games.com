@@ -15,23 +15,40 @@ router.post('/updatePlayerImage', async (req, res) => {
   try {
     const { user, image } = req.body;
 
-    // Find the user in the database and update the image path
-    const updatedUser = await User.findOneAndUpdate(
-      { username: user },
-      { route: image },
-      { new: true } // Return the updated document
-    );
+    // Obtén el usuario de la base de datos
+    const existingUser = await User.findOne({ username: user });
 
-    if (!updatedUser) {
-      // Handle the case where the user is not found
-      return res.status(404).json({ error: 'User not found' });
+    if (!existingUser) {
+      // Maneja el caso en el que el usuario no se encuentra
+      return res.status(404).json({ error: 'Usuario no encontrado' });
     }
 
-    // Send a response with the updated user data (if needed)
-    res.json({ message: 'Image updated successfully', user: updatedUser });
+    // Verifica si el usuario tiene suficientes monedas para comprar la nave
+    const precioNave = 50; // Precio de la nave
+    const monedasUsuario = existingUser.coins; // Asume que tienes un campo 'monedas' en tu objeto de usuario
+
+    if (monedasUsuario >= precioNave) {
+      // Resta las monedas del usuario y actualiza la imagen del jugador
+      const updatedUser = await User.findOneAndUpdate(
+        { username: user, coins: { $gte: precioNave } }, // Verifica si hay suficientes monedas
+        { $inc: { coins: -precioNave }, route: image }, // Resta el precio de la nave
+        { new: true } // Devuelve el documento actualizado
+      );
+
+      if (!updatedUser) {
+        // Maneja el caso en que la actualización falla (por ejemplo, si alguien más ha actualizado el usuario al mismo tiempo)
+        return res.status(500).json({ error: 'Error interno del servidor al actualizar el usuario' });
+      }
+
+      // Respuesta exitosa
+      return res.json({ success: true, message: 'Imagen actualizada exitosamente', user: updatedUser });
+    } else {
+      // Respuesta si no hay suficientes monedas
+      return res.status(403).json({ success: false, error: 'No hay suficientes monedas para comprar esta nave.' });
+    }
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    return res.status(500).json({ success: false, error: 'Error interno del servidor' });
   }
 });
 

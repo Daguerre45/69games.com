@@ -30,7 +30,7 @@ router.get('/', async function (req, res, next) {
 
 
     // Render the template
-    res.render('clasificacion', {
+    res.render('Clasificacion', {
       usersRG,
       usersSI,
       profileImageMap,
