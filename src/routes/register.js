@@ -26,7 +26,7 @@ router.post('/', async function(req, res, next) {
   await newUser.save();
 
   console.log('Usuario registrado:', newUser);
-  res.redirect('/chats'); // Cambia esto según la ruta deseada después del registro
+  res.redirect('/'); // Cambia esto según la ruta deseada después del registro
 });
 
 module.exports = router;
