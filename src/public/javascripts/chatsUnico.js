@@ -4,10 +4,9 @@ const socket = io();
 
 const usuarioDestino = document.getElementById('nick').textContent;
 
-let usuarioActual; // Esta variable necesita ser asignada de alguna manera
 
-socket.on('mensaje', (mensaje) => {
-    agregarMensaje(mensaje);
+socket.on('mensaje', async (mensaje) => {
+    agregarMensaje(mensaje, true);
 
     // Suponemos que esta función se comunica con el servidor para guardar el mensaje
     socket.emit('guardarMensaje', {
@@ -30,30 +29,45 @@ async function guardarMensajeEnBD(mensaje) {
 // Función para enviar mensajes al servidor
 function enviarMensaje() {
     const mensajeInput = document.getElementById('mensaje-input');
-    const mensaje = mensajeInput.value;
+    const contenidoMensaje = mensajeInput.value;
 
-    if (mensaje.trim() !== '') {
-        socket.emit('mensaje',{
-            sender: socket.id, // Cambiar a tu lógica de manejo de usuarios
+    if (contenidoMensaje.trim() !== '') {
+        const mensaje = {
+            sender: usuarioActual,
+            receiver: usuarioDestino,
+            content: usuarioActual + ": " + contenidoMensaje
+        };
+
+        socket.emit('mensaje', mensaje);
+
+        socket.emit('guardarMensaje', {
+            sender: usuarioActual,
             receiver: usuarioDestino,
             content: mensaje
         });
-            
+
         // Limpiar el área de entrada
         mensajeInput.value = '';
     }
 }
 
-// Función para agregar mensajes al área de mensajes
-function agregarMensaje(mensaje) {
+
+function agregarMensaje(mensaje, esUsuarioActual) {
     const chatMessages = document.getElementById('chat-messages');
     const nuevoMensaje = document.createElement('div');
-    nuevoMensaje.className = 'message sent';
+    nuevoMensaje.className = `message ${esUsuarioActual ? 'sent' : 'received'}`;
 
-    // Asegúrate de acceder a la propiedad 'content' del objeto mensaje
-    const contenidoMensaje = mensaje.content || ''; // Asegurarse de manejar mensajes sin contenido
+    const nombreUsuario = document.createElement('div');
+    nombreUsuario.className = 'usuario-nombre';
+    nombreUsuario.textContent = esUsuarioActual ? '' : mensaje.sender;
+    nombreUsuario.style.color = esUsuarioActual ? '#fff' : '#000';
 
-    nuevoMensaje.innerHTML = `<div class="message-content">${contenidoMensaje}</div>`;
+    const mensajeContent = document.createElement('div');
+    mensajeContent.className = 'message-content';
+    mensajeContent.textContent = mensaje.content;
+
+    nuevoMensaje.appendChild(nombreUsuario);
+    nuevoMensaje.appendChild(mensajeContent);
     chatMessages.appendChild(nuevoMensaje);
 }
 

@@ -1,44 +1,46 @@
 <%- include("header", {}) %>
-<link rel="stylesheet" href="/stylesheets/clasificación.css">
+<link rel="stylesheet" href="/stylesheets/clasificación.css" />
 <body>
-    <div class="clasificacion-container">
-      <div class="clasificacion-table">
-        <h2>Tabla de Puntuaciones Runner Game</h2>
-        <ul class="clasificacion-list">
-          <% usersRG.forEach(userRG => { %>
-            <li class="clasificacion-item">
-              <img
-                class="fotoPerfil"
-                src="../../images/profile_default.jpg"
-                alt="fotoPerfil"
-              />
-              <span class="info-usuario">
-                <span class="nombre"><%= userRG.username %></span>
-                <span class="puntos">Puntos: <%= userRG.scoreRG %></span>
-              </span>
-            </li>
-          <% }) %>
-        </ul>
-      </div>
-      
-      <div class="clasificacion-table">
-        <h2>Tabla de Puntuaciones Space Invaders</h2>
-        <ul class="clasificacion-list">
-          <% usersSI.forEach(userSI => { %>
-            <li class="clasificacion-item">
-              <img
-                class="fotoPerfil"
-                src="../../images/profile_default.jpg"
-                alt="fotoPerfil"
-              />
-              <span class="info-usuario">
-                <span class="nombre"><%= userSI.username %></span>
-                <span class="puntos">Puntos: <%= userSI.scoreSI %></span>
-              </span>
-            </li>
-          <% }) %>
-        </ul>
-      </div>
+  <div class="clasificacion-container">
+    <div class="clasificacion-table">
+      <h2>Tabla de Puntuaciones Runner Game</h2>
+      <ul class="clasificacion-list">
+        <% usersRG.forEach(userRG => { %>
+          <li class="clasificacion-item">
+            <% const imageRG = profileImageMap[userRG._id.toString()]; %>
+            <img
+              class="fotoPerfil"
+              src="<%= (imageRG && imageRG.data) ? `data:${imageRG.contentType};base64,${imageRG.data.toString('base64')}` : '../../images/profile_default.jpg' %>"
+              alt="fotoPerfil"
+            />
+            <span class="info-usuario">
+              <span class="nombre"><%= userRG.username %></span>
+              <span class="puntos">Puntos: <%= userRG.scoreRG %></span>
+            </span>
+          </li>
+        <% }) %>
+      </ul>
     </div>
+
+    <div class="clasificacion-table">
+      <h2>Tabla de Puntuaciones Space Invaders</h2>
+      <ul class="clasificacion-list">
+        <% usersSI.forEach(userSI => { %>
+          <li class="clasificacion-item">
+            <% const imageSI = profileImageMap[userSI._id.toString()]; %>
+            <img
+              class="fotoPerfil"
+              src="<%= (imageSI && imageSI.data) ? `data:${imageSI.contentType};base64,${imageSI.data.toString('base64')}` : '../../images/profile_default.jpg' %>"
+              alt="fotoPerfil"
+            />
+            <span class="info-usuario">
+              <span class="nombre"><%= userSI.username %></span>
+              <span class="puntos">Puntos: <%= userSI.scoreSI %></span>
+            </span>
+          </li>
+        <% }) %>
+      </ul>
+    </div>
+  </div>
 </body>
 <%- include("footer", {}) %>

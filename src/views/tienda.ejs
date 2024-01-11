@@ -4,22 +4,68 @@
 <div id="container-tienda">
   <div id="titulo-tienda">
     <p>Welcome to <%= title %></p>
+    <p>Coins: <span id="coins"><%= user.coins %></span></p>
   </div>
   <div id="items-tienda">
     <div class="row">
-      <div class="col-sm"><img src="/images/spaceship.png"><p>BLACK SHIP</p></div>
-      <div class="col-sm"><img src="/images/spaceCannon.png"><p>SPACE CANNON</p></div>
-      <div class="col-sm"><img src="/images/rocket.png"><p>ROCKET</p></div>
+      <div class="col-sm image-item" data-image="/images/spaceship.png">
+        <button onclick="updatePlayerImage('/images/spaceship.png', '<%= username %>')">
+          <img src="/images/spaceship.png" alt="BLACK SHIP">
+          <p>BLACK SHIP: 50 coins</p>
+        </button>
+      </div>
+      <div class="col-sm image-item" data-image="/images/spaceCannon.png">
+        <button onclick="updatePlayerImage('/images/spaceCannon.png', '<%= username %>')">
+          <img src="/images/spaceCannon.png" alt="SPACE CANNON">
+          <p>SPACE CANNON: 50 coins</p>
+        </button>
+      </div>
+      <div class="col-sm image-item" data-image="/images/rocket.png">
+        <button onclick="updatePlayerImage('/images/rocket.png', '<%= username %>')">
+          <img src="/images/rocket.png" alt="ROCKET">
+          <p>ROCKET: 50 coins</p>
+        </button>
+      </div>
     </div>
     <div class="row">
-      <div class="col-sm"><img src="/images/shuttle.png"><p>SPACE SHUTTLE</p></div>
-      <div class="col-sm"><img src="/images/hellYeah.png"><p>RED BATTLESHIP</p></div>
-      <div class="col-sm"><img src="/images/bigShip.png"><p>HUNTER SHIP</p></div>
+      <div class="col-sm image-item" data-image="/images/shuttle.png">
+        <button onclick="updatePlayerImage('/images/shuttle.png', '<%= username %>')">
+          <img src="/images/shuttle.png" alt="SPACE SHUTTLE">
+          <p>SPACE SHUTTLE: 50 coins</p>
+        </button>
+      </div>
+      <div class="col-sm image-item" data-image="/images/hellYeah.png">
+        <button onclick="updatePlayerImage('/images/hellYeah.png', '<%= username %>')">
+          <img src="/images/hellYeah.png" alt="RED BATTLESHIP">
+          <p>RED BATTLESHIP: 50 coins</p>
+        </button>
+      </div>
+      <div class="col-sm image-item" data-image="/images/bigShip.png">
+        <button onclick="updatePlayerImage('/images/bigShip.png', '<%= username %>')">
+          <img src="/images/bigShip.png" alt="HUNTER SHIP">
+          <p>HUNTER SHIP: 50 coins</p>
+        </button>
+      </div>
     </div>
     <div class="row">
-      <div class="col-sm"><img src="/images/blueShip.png"><p>BLUE BATTLESHIP</p></div>
-      <div class="col-sm"><img src="/images/fuckYeah.png"><p>PORKY STAR</p></div>
-      <div class="col-sm"><img src="/images/deathStar.png"><p>DEATH STAR</p></div>
+      <div class="col-sm image-item" data-image="/images/blueShip.png">
+        <button onclick="updatePlayerImage('/images/blueShip.png', '<%= username %>')">
+          <img src="/images/blueShip.png" alt="BLUE BATTLESHIP">
+          <p>BLUE BATTLESHIP: 50 coins</p>
+        </button>
+      </div>
+      <div class="col-sm image-item" data-image="/images/fuckYeah.png">
+        <button onclick="updatePlayerImage('/images/fuckYeah.png', '<%= username %>')">
+          <img src="/images/fuckYeah.png" alt="PORKY STAR">
+          <p>PORKY STAR: 50 coins</p>
+        </button>
+      </div>
+      <div class="col-sm image-item" data-image="/images/deathStar.png">
+        <button onclick="updatePlayerImage('/images/deathStar.png', '<%= username %>')">
+          <img src="/images/deathStar.png" alt="DEATH STAR">
+          <p>DEATH STAR: 50 coins</p>
+        </button>
+      </div>
     </div>
   </div>
 </div>
