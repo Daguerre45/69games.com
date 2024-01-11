@@ -16,18 +16,32 @@ router.get('/', async (req, res) => {
 
 router.post('/upload', upload.single('image'), async (req, res) => {
   // Handle the image upload
-  const user = req.session.user; 
+  const user = req.session.user;
 
-  const newImage = new Image({
-    user:user,
-    filename: req.file.originalname,
-    data: req.file.buffer,
-    contentType: req.file.mimetype
-  });
+  // Check if there is already an image for the user in the database
+  const existingImage = await Image.findOne({ user: user });
 
-  await newImage.save();
+  if (existingImage) {
+    // If an image exists, update only filename, data, and contentType
+    existingImage.filename = req.file.originalname;
+    existingImage.data = req.file.buffer;
+    existingImage.contentType = req.file.mimetype;
+
+    await existingImage.save();
+  } else {
+    // If no image exists, create a new one with all details
+    const newImage = new Image({
+      user: user,
+      filename: req.file.originalname,
+      data: req.file.buffer,
+      contentType: req.file.mimetype
+    });
+
+    await newImage.save();
+  }
 
   res.redirect('/perfil');
 });
+
 
 module.exports = router;
