@@ -31,6 +31,7 @@ router.get('/', async function (req, res, next) {
 
     // Render the template
     res.render('Clasificacion', {
+      title: "Clasificacion",
       usersRG,
       usersSI,
       profileImageMap,
