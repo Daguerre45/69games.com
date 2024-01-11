@@ -33,15 +33,15 @@ function enviarMensaje() {
 
     if (contenidoMensaje.trim() !== '') {
         const mensaje = {
-            sender: currentUser.username,
+            sender: usuarioActual,
             receiver: usuarioDestino,
-            content: currentUser.username + ": " + contenidoMensaje
+            content: usuarioActual + ": " + contenidoMensaje
         };
 
         socket.emit('mensaje', mensaje);
 
         socket.emit('guardarMensaje', {
-            sender: currentUser.username,
+            sender: usuarioActual,
             receiver: usuarioDestino,
             content: mensaje
         });
